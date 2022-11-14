@@ -1,24 +1,27 @@
+import java.util.Comparator;
 import java.util.Iterator;
 
-public class ListaVinculada implements Iterator<Nodo>{
+public class ListaVinculada implements Iterator<Object>{
 	Nodo cabeza;
+	Comparator<Object> orden;
 	private int size;
 	
-	public ListaVinculada() {
+	public ListaVinculada(Comparator <Object> orden) {
 		this.cabeza=null;
 		this.size=0;
+		this.orden=orden;
 	}
 	
 	public void addPrimero(Object obj) {
+		Nodo nuevo= new Nodo(obj);
 		if(cabeza==null) {
-			cabeza = new Nodo(obj);
+			cabeza = nuevo;
 		}else {
 			Nodo temp = cabeza;
-			Nodo nuevo = new Nodo(obj);
 			nuevo.enlazarSiguiente(temp);
 			cabeza=nuevo;
 		}
-		size++;
+		size++; 
 	}
 	
 	public boolean estaVacia() {
@@ -30,6 +33,10 @@ public class ListaVinculada implements Iterator<Nodo>{
 	}
 	
 	
+	public void setOrden(Comparator<Object> orden) {
+		this.orden = orden;
+	}
+
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
