@@ -1,5 +1,6 @@
 
-public class Nodo {
+
+public class Nodo  {
 	Object valor;
 	Nodo siguiente;  
 	
@@ -19,4 +20,5 @@ public class Nodo {
 	public Object obtenerValor() {
 		return valor;
 	}
+
 }
