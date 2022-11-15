@@ -5,29 +5,23 @@ public class ListaVinculada implements Iterable<Object>{
 	
 	Nodo cabeza;
 	Comparator<Object> orden;
-	private int size, valor;
+//	private int size;
 	
 	public ListaVinculada(Comparator <Object> orden) {
 		this.cabeza=null;
 //		this.size=0;
 		this.orden=orden;
-		this.valor=-1;
-	}
-	
-	public void setValor(int valor) {
-		if(valor!=0) {
-			this.valor = valor;	
-		}
 	}
 
-	public void addNodo(Object obj) {
+
+	public void InsertarOrdenado(Object obj) {
 		Nodo nuevo= new Nodo(obj);
 		if(estaVacia()) {
 			cabeza = nuevo;
 		}else {
 			Nodo anterior=null;
 			Nodo temp = this.cabeza;
-			while(temp!=null && orden.compare(temp, nuevo)<this.valor) {
+			while(temp!=null && orden.compare(temp, nuevo)<0) {
 				anterior = cabeza;
 				temp=temp.obtenerSiguiente();
 			}if(temp==null) {
@@ -37,6 +31,16 @@ public class ListaVinculada implements Iterable<Object>{
 		}
 		}
 //		size++; 
+	}
+	
+	public void ordenar() {
+		Nodo aux= this.cabeza;
+		Nodo ant=null;
+		while(aux!=null && orden.compare(aux, ant)<0) {
+			ant=aux;
+			aux=aux.obtenerSiguiente();
+		}
+		
 	}
 	
 	public Object obtener(Integer index) {
@@ -59,22 +63,25 @@ public class ListaVinculada implements Iterable<Object>{
 				temporal = temporal.obtenerSiguiente();
 				contador ++;
 			}	
-			temporal.enlazarSiguiente(temporal.obtenerSiguiente().obtenerSiguiente());	
+			temporal.enlazarSiguiente(
+					temporal.obtenerSiguiente().obtenerSiguiente());	
 		}
 		
 	}
 	
+	
 	public boolean estaVacia() {
 		return (this.cabeza==null);
 	}
-	
-	public int getSize() {
-		return size;
-	}
-	
+//	
+//	public int getSize() {
+//		return size;
+//	}
+//	
 	
 	public void setOrden(Comparator<Object> orden) {
 		this.orden = orden;
+		ordenar();
 	}
 
 	public Iterator<Object> iterator(){
