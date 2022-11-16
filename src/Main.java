@@ -7,7 +7,8 @@ public class Main {
 		Nodo n1= new Nodo(1);
 		Nodo n2= new Nodo(2);
 		
-		Integer elemento1= 1;
+		
+		Integer elemento100= 100;
 			
 		ComparadorInteger comparadorvalor= new ComparadorInteger();
 		
@@ -15,7 +16,12 @@ public class Main {
 		ListaVinculada listaInteger= new ListaVinculada(comparadorvalor);
 		listaInteger.InsertarOrdenado(n1.obtenerValor());
 		listaInteger.InsertarOrdenado(n2.obtenerValor());
-					
+		listaInteger.InsertarOrdenado(elemento100);
+		
+				
+		for(Object i: listaInteger) {
+			System.out.println(i);
+		}
 //		Iterator<Object> it = listaInteger.iterator();
 //			while(it.hasNext()) {
 //				Object valor = it.next();

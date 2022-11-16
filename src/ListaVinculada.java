@@ -138,7 +138,7 @@ public class ListaVinculada implements Iterable<Object>{
 		}
 		@Override
 		public boolean hasNext() {
-			return nodo.obtenerSiguiente().obtenerValor()!=null;
+			return nodo.obtenerSiguiente()!=null;
 		}
 		
 		@Override
