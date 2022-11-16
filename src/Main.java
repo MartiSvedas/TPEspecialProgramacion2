@@ -7,14 +7,14 @@ public class Main {
 		Nodo n1= new Nodo(1);
 		Nodo n2= new Nodo(2);
 			
-		Comparador<Integer> comparadorvalor= new ComparadorValor<Integer>();
+		Comparador comparadorvalor= new ComparadorValor();
 		
 		
-		ListaVinculada<Integer> listaInteger= new ListaVinculada<Integer>(comparadorvalor);
+		ListaVinculada listaInteger= new ListaVinculada(comparadorvalor);
 		listaInteger.InsertarOrdenado(n1.obtenerValor());
 		listaInteger.InsertarOrdenado(n2.obtenerValor());
 					
-		Iterator<Integer> it = listaInteger.iterator();
+		Iterator<Object> it = listaInteger.iterator();
 			while(it.hasNext()) {
 				Object valor = it.next();
 				System.out.println(valor);

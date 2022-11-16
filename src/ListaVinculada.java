@@ -1,13 +1,13 @@
 import java.util.Comparator;
 import java.util.Iterator;
 
-public class ListaVinculada<T> implements Iterable<T>{
+public class ListaVinculada implements Iterable<Object>{
 	
 	Nodo cabeza;
-	Comparator<T> orden;
+	Comparator<Object> orden;
 	private int size;
 	
-	public ListaVinculada(Comparator <T> orden) {
+	public ListaVinculada(Comparator<Object> orden) {
 		this.cabeza=null;
 		this.size=0;
 		this.orden=orden;
@@ -67,7 +67,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 		size--;
 	}
 	
-	public Integer obtenerPosicion(T valor) {
+	public Integer obtenerPosicion(Object valor) {
 		Nodo aux=cabeza;
 		int contador=0;
 		while(aux!=null && aux.obtenerValor()!=valor) {
@@ -81,7 +81,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 		}
 	}
 	
-	public void eliminarOcurrencias(T valor) {
+	public void eliminarOcurrencias(Object valor) {
 		Nodo aux= this.cabeza;
 			while(aux!=null) {
 				if(aux.obtenerValor()==valor) {
@@ -100,12 +100,12 @@ public class ListaVinculada<T> implements Iterable<T>{
 		return size;
 	}
 	
-	public void setOrden(Comparator<T> orden) {
+	public void setOrden(Comparator<Object> orden) {
 		this.orden = orden;
 		ordenar();
 	}
 
-	public Iterator<T> iterator(){
+	public Iterator<Object> iterator(){
 		return new IteradorNodo(this.cabeza);
 	}
 	
@@ -117,7 +117,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 //		
 //	}
 	
-	private class IteradorNodo implements Iterator<T>{
+	private class IteradorNodo implements Iterator<Object>{
 		private Nodo nodo;
 		
 		public IteradorNodo(Nodo n) {
@@ -129,8 +129,8 @@ public class ListaVinculada<T> implements Iterable<T>{
 		}
 		
 		@Override
-		public T next() {
-			T valor=(T) nodo.obtenerValor();
+		public Object next() {
+			Object valor= nodo.obtenerValor();
 			nodo = nodo.obtenerSiguiente();
 			return valor; 
 		}

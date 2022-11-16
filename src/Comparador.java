@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public abstract class Comparador<T> implements Comparator<T>{
-	public abstract int compare(T o1 , T o2 );
+public abstract class Comparador implements Comparator<Object>{
+	public abstract int compare(Object o1 , Object o2 );
 }
 
