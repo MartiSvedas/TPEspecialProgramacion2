@@ -6,6 +6,8 @@ public class Main {
     	
 		Nodo n1= new Nodo(1);
 		Nodo n2= new Nodo(2);
+		
+		Integer elemento1= 1;
 			
 		Comparador comparadorvalor= new ComparadorValor();
 		
@@ -14,11 +16,11 @@ public class Main {
 		listaInteger.InsertarOrdenado(n1.obtenerValor());
 		listaInteger.InsertarOrdenado(n2.obtenerValor());
 					
-		Iterator<Object> it = listaInteger.iterator();
-			while(it.hasNext()) {
-				Object valor = it.next();
-				System.out.println(valor);
-			}
+//		Iterator<Object> it = listaInteger.iterator();
+//			while(it.hasNext()) {
+//				Object valor = it.next();
+//				System.out.println(valor);
+//			}
 		
 		}
 }

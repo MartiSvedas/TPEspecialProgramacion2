@@ -19,23 +19,30 @@ public class ListaVinculada implements Iterable<Object>{
 			cabeza = nuevo;
 		}else {
 			Nodo anterior=null;
-			while(this.cabeza!=null && orden.compare(this.cabeza.obtenerValor(), nuevo.obtenerValor())<0) {
+			Nodo temp=this.cabeza;
+			while(temp!=null && orden.compare(temp.obtenerValor(), obj)<0) { //nuevo es mayor que temp avanzo
 				anterior = cabeza;
-				this.cabeza=this.cabeza.obtenerSiguiente();		
-			}if(this.cabeza==null) {
-				anterior.enlazarSiguiente(nuevo);
+				temp=temp.obtenerSiguiente();		
+			}if(temp==null&&anterior!=null) {
+				anterior.enlazarSiguiente(nuevo);	//al anterior le enlaza el nuevo;
 			}else {
-				nuevo.enlazarSiguiente(this.cabeza);
+				nuevo.enlazarSiguiente(temp); // pone al nuevo antes que el temporal
+				if(temp==this.cabeza) {
+					this.cabeza=nuevo;	//si no habia anterior al nuevo lo pone como cabeza
+				}else {
+					anterior.enlazarSiguiente(nuevo);	//si habia anterior le enlaza el nuevo
+				}
 		}
 		}
 		size++; 
 	}
 	
-	public void ordenar() {
-		Nodo ant=null;
-		while(this.cabeza!=null && orden.compare(this.cabeza.obtenerValor(), ant.obtenerValor())<0) {
-			ant=this.cabeza;
-			this.cabeza=this.cabeza.obtenerSiguiente();
+	private void ordenar() {
+		Nodo aux= this.cabeza;
+		this.cabeza=null;
+		while(this.cabeza!=null) {
+			this.InsertarOrdenado(aux.obtenerValor());
+			aux=aux.obtenerSiguiente();
 		}
 		
 	}
@@ -83,13 +90,19 @@ public class ListaVinculada implements Iterable<Object>{
 	
 	public void eliminarOcurrencias(Object valor) {
 		Nodo aux= this.cabeza;
-			while(aux!=null) {
-				if(aux.obtenerValor()==valor) {
-					aux=aux.obtenerSiguiente();	
-					size--;
-				}
-				aux=aux.obtenerSiguiente();
-			}	
+		Nodo ant=null;
+		while(aux.obtenerValor().equals(valor)&& aux!=null) {
+			this.cabeza=cabeza.obtenerSiguiente();	
+			size--;
+			aux=aux.obtenerSiguiente();
+			}
+		if(aux!=null) {
+			ant=aux;
+			aux=aux.obtenerSiguiente();
+		}else {
+			cabeza=null;
+		}
+				
 	}
 	
 	public boolean estaVacia() {
@@ -125,7 +138,7 @@ public class ListaVinculada implements Iterable<Object>{
 		}
 		@Override
 		public boolean hasNext() {
-			return nodo.obtenerSiguiente()!=null;
+			return nodo.obtenerSiguiente().obtenerValor()!=null;
 		}
 		
 		@Override
