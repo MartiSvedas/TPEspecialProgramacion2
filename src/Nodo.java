@@ -1,23 +1,23 @@
 
 
-public class Nodo  {
-	Object valor;
-	Nodo siguiente;  
+public class Nodo<T>  {
+	T valor;
+	Nodo<T> siguiente;  
 	
 	
-	public Nodo (Object valor) {
+	public Nodo (T valor) {
 		this.valor=valor;
 	}
 	
-	public void enlazarSiguiente(Nodo n) {
+	public void enlazarSiguiente(Nodo<T> n) {
 		siguiente=n;
 	}
 	
-	public Nodo obtenerSiguiente() {
+	public Nodo<T> obtenerSiguiente() {
 		return siguiente;
 	}
 	
-	public Object obtenerValor() {
+	public T obtenerValor() {
 		return valor;
 	}
 

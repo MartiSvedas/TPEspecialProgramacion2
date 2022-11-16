@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
-public class ComparadorString implements Comparator<Object>{
-	public int compare(Object o1, Object o2) {
+public class ComparadorString<T> implements Comparator<T>{
+	public int compare(T o1, T o2) {
 		String st1=(String)o1;
 		String st2=(String) o2;
 		

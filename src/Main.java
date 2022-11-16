@@ -4,22 +4,22 @@ public class Main {
 	
     public static void main(String[] args) {
     	
-		Nodo n1= new Nodo(1);
-		Nodo n2= new Nodo(2);
+		Nodo<Integer> n1= new Nodo<Integer>(1);
+		Nodo<Integer> n2= new Nodo<Integer>(2);
 		
 		
 		Integer elemento100= 100;
 			
-		ComparadorInteger comparadorvalor= new ComparadorInteger();
+		ComparadorInteger<Integer> comparadorvalor= new ComparadorInteger<Integer>();
 		
 		
-		ListaVinculada listaInteger= new ListaVinculada(comparadorvalor);
+		ListaVinculada<Integer> listaInteger= new ListaVinculada<Integer>(comparadorvalor);
 		listaInteger.InsertarOrdenado(n1.obtenerValor());
 		listaInteger.InsertarOrdenado(n2.obtenerValor());
 		listaInteger.InsertarOrdenado(elemento100);
 		
 				
-		for(Object i: listaInteger) {
+		for(Integer i: listaInteger) {
 			System.out.println(i);
 		}
 //		Iterator<Object> it = listaInteger.iterator();
