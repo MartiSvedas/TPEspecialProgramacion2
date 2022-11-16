@@ -19,25 +19,23 @@ public class ListaVinculada<T> implements Iterable<T>{
 			cabeza = nuevo;
 		}else {
 			Nodo anterior=null;
-			Nodo temp = this.cabeza;
-			while(temp!=null && orden.compare(temp, nuevo)<0) {
+			while(this.cabeza!=null && orden.compare(this.cabeza.obtenerValor(), nuevo.obtenerValor())<0) {
 				anterior = cabeza;
-				temp=temp.obtenerSiguiente();		
-			}if(temp==null) {
+				this.cabeza=this.cabeza.obtenerSiguiente();		
+			}if(this.cabeza==null) {
 				anterior.enlazarSiguiente(nuevo);
 			}else {
-				nuevo.enlazarSiguiente(temp);
+				nuevo.enlazarSiguiente(this.cabeza);
 		}
 		}
 		size++; 
 	}
 	
 	public void ordenar() {
-		Nodo aux= this.cabeza;
 		Nodo ant=null;
-		while(aux!=null && orden.compare(aux, ant)<0) {
-			ant=aux;
-			aux=aux.obtenerSiguiente();
+		while(this.cabeza!=null && orden.compare(this.cabeza.obtenerValor(), ant.obtenerValor())<0) {
+			ant=this.cabeza;
+			this.cabeza=this.cabeza.obtenerSiguiente();
 		}
 		
 	}
@@ -111,6 +109,14 @@ public class ListaVinculada<T> implements Iterable<T>{
 		return new IteradorNodo(this.cabeza);
 	}
 	
+//	public void mostrarLista() {
+//		Iterator<T> it = this.iterator();
+//		while(it.hasNext()) {
+//			T index= it.next();
+//		}
+//		
+//	}
+	
 	private class IteradorNodo implements Iterator<T>{
 		private Nodo nodo;
 		
@@ -125,8 +131,8 @@ public class ListaVinculada<T> implements Iterable<T>{
 		@Override
 		public T next() {
 			T valor=(T) nodo.obtenerValor();
-			 nodo = nodo.obtenerSiguiente();
-			 return valor;
+			nodo = nodo.obtenerSiguiente();
+			return valor; 
 		}
 	}
 
