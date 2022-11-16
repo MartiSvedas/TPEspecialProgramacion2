@@ -9,7 +9,7 @@ public class Main {
 		
 		Integer elemento1= 1;
 			
-		Comparador comparadorvalor= new ComparadorValor();
+		ComparadorInteger comparadorvalor= new ComparadorInteger();
 		
 		
 		ListaVinculada listaInteger= new ListaVinculada(comparadorvalor);
