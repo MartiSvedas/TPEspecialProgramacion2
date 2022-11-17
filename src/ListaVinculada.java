@@ -47,7 +47,6 @@ public class ListaVinculada<T> implements Iterable<T>{
 		
 	}
 	
-	
 	public void eliminarSegunPosicion(Integer index) {
 		int contador = 0;
 		if(index==0) {
@@ -131,7 +130,14 @@ public class ListaVinculada<T> implements Iterable<T>{
 		this.orden = orden;
 		ordenar();
 	}
-
+	
+	public void mostrarLista() {
+        IteradorNodo<T> iterador = new IteradorNodo<T>(cabeza, size);
+        while(iterador.hasNext()) {
+            System.out.println(iterador.next());
+        }
+    }
+	
 	public Iterator<T> iterator(){
 		return new IteradorNodo<T>(this.cabeza,this.size);
 	}
