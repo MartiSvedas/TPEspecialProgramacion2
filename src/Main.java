@@ -13,7 +13,7 @@ public class Main {
 		Integer elemento5=5;
 		Integer elemento2=2;
 		ComparadorInteger<Integer> comparadorvalor= new ComparadorInteger<Integer>();
-		
+		ComparadorInverso<Integer> comparadorinverso = new ComparadorInverso<Integer>(comparadorvalor);
 		
 		ListaVinculada<Integer> listaInteger= new ListaVinculada<Integer>(comparadorvalor);
 //		listaInteger.InsertarOrdenado(n2.obtenerValor());
@@ -26,6 +26,7 @@ public class Main {
 		listaInteger.InsertarOrdenado(elemento10);
 		listaInteger.InsertarOrdenado(elemento2);
 //		listaInteger.eliminarSegunValor(elemento100);
+		listaInteger.setOrden(comparadorinverso);
 		
 		System.out.println("La posicion es " + listaInteger.obtenerPosicion(100));
 		
