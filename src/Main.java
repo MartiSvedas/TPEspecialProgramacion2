@@ -11,6 +11,7 @@ public class Main {
 		Integer elemento10=10;
 		Integer elemento1=1;
 		Integer elemento5=5;
+		Integer elemento2=2;
 		ComparadorInteger<Integer> comparadorvalor= new ComparadorInteger<Integer>();
 		
 		
@@ -23,7 +24,8 @@ public class Main {
 		listaInteger.InsertarOrdenado(elemento100);
 		listaInteger.InsertarOrdenado(elemento10);
 		listaInteger.InsertarOrdenado(elemento10);
-		
+		listaInteger.InsertarOrdenado(elemento2);
+//		listaInteger.eliminarSegunValor(elemento100);
 		
 		System.out.println("La posicion es " + listaInteger.obtenerPosicion(100));
 		
@@ -33,7 +35,7 @@ public class Main {
 		for(Integer i: listaInteger) {
 			System.out.println(i);
 		}
-//		
+		
 //		Iterator<Integer> it = listaInteger.iterator();
 //			while(it.hasNext()) {
 //				Integer valor = it.next();
