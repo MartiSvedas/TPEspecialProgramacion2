@@ -65,16 +65,16 @@ public class ListaVinculada<T> implements Iterable<T>{
 	
 	  public void eliminarSegunValor(T numeroAeliminar) {
 	        if (cabeza!= null) {
-	            Nodo<T> actual = cabeza;
+	            Nodo<T> aux = cabeza;
 	            Nodo<T> anterior = null;
-	            while ((actual != null) && (!actual.obtenerValor().equals(numeroAeliminar))) {
-	                anterior = actual;
-	                actual = actual.obtenerSiguiente();
+	            while ((aux != null) && (!aux.obtenerValor().equals(numeroAeliminar))) {
+	                anterior = aux;
+	                aux = aux.obtenerSiguiente();
 	            }
-	            if (actual==cabeza){
-	                cabeza=actual.obtenerSiguiente();
-	            }else if ((actual != null) && (actual.obtenerValor().equals(numeroAeliminar))) {
-	                anterior.enlazarSiguiente(actual.obtenerSiguiente());
+	            if (aux==cabeza){
+	                cabeza=aux.obtenerSiguiente();
+	            }else if ((aux != null) && (aux.obtenerValor().equals(numeroAeliminar))) {
+	                anterior.enlazarSiguiente(aux.obtenerSiguiente());
 	                this.size--;
 	            }
 	        }
@@ -101,8 +101,11 @@ public class ListaVinculada<T> implements Iterable<T>{
 		while(aux!=null && aux.obtenerValor()!=valor) {
 			aux=aux.obtenerSiguiente();
 			contador++;
+		}if(aux==null) {
+			return null;
+		}else {
+			return contador;	
 		}
-			return contador;
 		}
 	}
 	
