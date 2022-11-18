@@ -95,7 +95,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 	
 	public Integer obtenerPosicion(T valor) {
 		if(estaVacia()) {
-			return null;
+			return -1;
 		}else {
 		Nodo<T> aux=cabeza;
 		int contador=0;
@@ -103,7 +103,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 			aux=aux.obtenerSiguiente();
 			contador++;
 		}if(aux==null) {
-			return null;
+			return -1;
 		}else {
 			return contador;	
 		}
