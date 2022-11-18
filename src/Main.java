@@ -25,12 +25,16 @@ public class Main {
 		listaInteger.InsertarOrdenado(elemento10);
 		listaInteger.InsertarOrdenado(elemento10);
 		listaInteger.InsertarOrdenado(elemento2);
+		listaInteger.InsertarOrdenado(elemento2);
+		
 //		listaInteger.eliminarSegunValor(elemento100);
 		listaInteger.setOrden(comparadorinverso);
 		
+//		listaInteger.Insertar(elemento100);
+		
 		System.out.println("La posicion es " + listaInteger.obtenerPosicion(5));
 		
-//		listaInteger.eliminarOcurrencias(elemento10);
+		listaInteger.eliminarOcurrencias(elemento10);
 		
 				
 		for(Integer i: listaInteger) {

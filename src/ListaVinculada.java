@@ -3,8 +3,8 @@ import java.util.Iterator;
 
 public class ListaVinculada<T> implements Iterable<T>{
 	
-	Nodo<T> cabeza;
-	Comparator<T> orden;
+	private Nodo<T> cabeza;
+	private Comparator<T> orden;
 	private int size;
 	
 	public ListaVinculada(Comparator<T> orden) {
@@ -13,14 +13,14 @@ public class ListaVinculada<T> implements Iterable<T>{
 		this.orden=orden;
 	}
 
-	public void InsertarOrdenado(T obj) {
-		Nodo<T> nuevo= new Nodo<T>(obj);
+	public void InsertarOrdenado(T valor) {
+		Nodo<T> nuevo= new Nodo<T>(valor);
 		if(estaVacia()) {
 			cabeza = nuevo;
 		}else {
 			Nodo<T> anterior=null;
 			Nodo<T> temp=this.cabeza;
-			while(temp!=null && orden.compare(temp.obtenerValor(), obj)<0) { //nuevo es mayor que temp avanzo
+			while(temp!=null && orden.compare(temp.obtenerValor(), valor)<0) { //nuevo es mayor que temp avanzo
 				anterior = temp;		//al anterior le doy el papel de cabeza
 				temp=temp.obtenerSiguiente(); //avanzo		
 			}if(temp==null&&anterior!=null) {
@@ -35,6 +35,20 @@ public class ListaVinculada<T> implements Iterable<T>{
 		}
 		}
 		size++; 
+	}
+	
+	public void Insertar(T valor) {
+		 Nodo<T> nuevo = new Nodo<T>(valor); 
+		if(estaVacia()) {
+			this.cabeza=nuevo;
+		}else {
+		Nodo<T> temp= this.cabeza;
+		while(temp!=null) {
+			temp=temp.obtenerSiguiente();
+			nuevo.enlazarSiguiente(temp);
+		}
+		}
+		size++;
 	}
 	
 	private void ordenar() {
@@ -139,7 +153,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 			}
 		}
 		}		
-	}
+}
 	
 	public boolean estaVacia() {
 		return (this.cabeza==null);
