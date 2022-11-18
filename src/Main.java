@@ -28,7 +28,7 @@ public class Main {
 //		listaInteger.eliminarSegunValor(elemento100);
 		listaInteger.setOrden(comparadorinverso);
 		
-		System.out.println("La posicion es " + listaInteger.obtenerPosicion(100));
+		System.out.println("La posicion es " + listaInteger.obtenerPosicion(5));
 		
 //		listaInteger.eliminarOcurrencias(elemento10);
 		

@@ -43,6 +43,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 		while(aux!=null) {
 			this.InsertarOrdenado(aux.obtenerValor());
 			aux=aux.obtenerSiguiente();
+			size--;
 		}
 		
 	}
