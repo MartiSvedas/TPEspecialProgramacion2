@@ -19,24 +19,30 @@ public class Main {
 //		listaInteger.InsertarOrdenado(n2.obtenerValor());
 //		listaInteger.InsertarOrdenado(n1.obtenerValor());
 		
-		listaInteger.InsertarOrdenado(elemento1);
-		listaInteger.InsertarOrdenado(elemento1);
-		listaInteger.InsertarOrdenado(elemento5);
-		listaInteger.InsertarOrdenado(elemento100);
-		listaInteger.InsertarOrdenado(elemento100);
-		listaInteger.InsertarOrdenado(elemento10);
-		listaInteger.InsertarOrdenado(elemento10);
-		listaInteger.InsertarOrdenado(elemento2);
-		listaInteger.InsertarOrdenado(elemento2);
+//		listaInteger.InsertarOrdenado(elemento1);
+//		listaInteger.InsertarOrdenado(elemento1);
+//		listaInteger.InsertarOrdenado(elemento5);
+//		listaInteger.InsertarOrdenado(elemento100);
+//		listaInteger.InsertarOrdenado(elemento100);
+//		listaInteger.InsertarOrdenado(elemento10);
+//		listaInteger.InsertarOrdenado(elemento10);
+//		listaInteger.InsertarOrdenado(elemento2);
+//		listaInteger.InsertarOrdenado(elemento2);
 		
 //		listaInteger.eliminarSegunValor(elemento100);
 		listaInteger.setOrden(comparadorinverso);
 		
-//		listaInteger.Insertar(elemento100);
+		listaInteger.Insertar(elemento100);
+		listaInteger.Insertar(elemento1);
+		listaInteger.Insertar(elemento10);
+		listaInteger.Insertar(elemento2);
+		listaInteger.Insertar(elemento1);
+
+
 		
 //		System.out.println("La posicion es " + listaInteger.obtenerPosicion(5));
 		
-		listaInteger.eliminarOcurrencias(elemento100);
+//		listaInteger.eliminarOcurrencias(elemento10);
 		
 				
 		for(Integer i: listaInteger) {

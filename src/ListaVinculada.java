@@ -43,9 +43,12 @@ public class ListaVinculada<T> implements Iterable<T>{
 			this.cabeza=nuevo;
 		}else {
 		Nodo<T> temp= this.cabeza;
+		Nodo<T> ant= null;
 		while(temp!=null) {
+			ant=temp;
 			temp=temp.obtenerSiguiente();
-			nuevo.enlazarSiguiente(temp);
+		}if(temp==null && ant!=null) {
+			ant.enlazarSiguiente(nuevo);	
 		}
 		}
 		size++;
@@ -64,6 +67,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 	
 	public void eliminarSegunPosicion(Integer index) {
 		int contador = 0;
+		if(index<size) {
 		if(index==0) {
 			cabeza=cabeza.obtenerSiguiente();
 		}else {
@@ -76,6 +80,7 @@ public class ListaVinculada<T> implements Iterable<T>{
 					temporal.obtenerSiguiente().obtenerSiguiente());	
 		}
 		size--;
+	}
 	}
 	
 	  public void eliminarSegunValor(T numeroAeliminar) {
@@ -130,19 +135,51 @@ public class ListaVinculada<T> implements Iterable<T>{
 		}else {	
 		Nodo<T> aux= this.cabeza;
 		Nodo<T> ant=null;
-		while(aux!=null && !aux.obtenerValor().equals(valor)) {
+		while(aux!=null && !aux.obtenerValor().equals(valor)  ) {
 			ant=aux;
 			aux=aux.obtenerSiguiente();	
 		}
-		if(aux!=null) {
-			while(aux.obtenerValor().equals(valor)) {
-				this.size--;
+			while(aux.obtenerValor().equals(valor)&& aux!=null) {
 				ant.enlazarSiguiente(aux.obtenerSiguiente()); //apunto al nodo siguiente al siguiente(elimino)
 				aux=aux.obtenerSiguiente(); //avanzo
-		}
+				this.size--;
+				
 		}
 		}		
 }
+	
+//	public void eliminarOcurrencias(T valor) {
+//        if(estaVacia()) {
+//            return ;
+//        }else {
+//        Nodo<T> aux= this.cabeza;
+//        Nodo<T> ant=null;
+//        while(aux.obtenerValor().equals(valor)&& aux!=null) {//recorro la lista 
+//            this.cabeza=cabeza.obtenerSiguiente();
+//            size--;
+//            aux=aux.obtenerSiguiente();
+//            }
+//        if(aux!=null) { 
+//            ant=aux;
+//            aux=aux.obtenerSiguiente();
+//        }else {
+//            cabeza=null;
+//
+//        }
+//        while(aux!=null) {
+//            if(aux.obtenerValor().equals(valor)) {
+//                ant.enlazarSiguiente(aux.obtenerSiguiente()); //apunto al nodo siguiente al siguiente(elimino)
+//                aux=aux.obtenerSiguiente(); //avanzo
+//                this.size--;
+//            }else {
+//                ant=aux; 
+//                aux=aux.obtenerSiguiente();
+//            }
+//        }
+//        }
+//    }
+	
+
 	
 	public boolean estaVacia() {
 		return (this.cabeza==null);
