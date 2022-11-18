@@ -126,33 +126,45 @@ public class ListaVinculada<T> implements Iterable<T>{
 	
 	public void eliminarOcurrencias(T valor) {
 		if(estaVacia()) {
-			return ;
+			return;
 		}else {	
 		Nodo<T> aux= this.cabeza;
 		Nodo<T> ant=null;
-		while(aux.obtenerValor().equals(valor)&& aux!=null) {//recorro la lista 
-			this.cabeza=cabeza.obtenerSiguiente();	
-			size--;
-			aux=aux.obtenerSiguiente();
-			}
-		if(aux!=null) { 
-			ant=aux;	
-			aux=aux.obtenerSiguiente();
-		}else {
-			cabeza=null;
-		 
+		while(aux!=null && !aux.obtenerValor().equals(valor)) {
+			ant=aux;
+			aux=aux.obtenerSiguiente();	
+		}if(aux!=null) {
+		while(aux.obtenerValor().equals(valor) && aux!=null) {
+			ant.enlazarSiguiente(aux.obtenerSiguiente()); //apunto al nodo siguiente al siguiente(elimino)
+			aux=aux.obtenerSiguiente(); //avanzo
+			this.size--;
 		}
-		while(aux!=null) {
-			if(aux.obtenerValor().equals(valor)) {
-				ant.enlazarSiguiente(aux.obtenerSiguiente()); //apunto al nodo siguiente al siguiente(elimino)
-				aux=aux.obtenerSiguiente(); //avanzo
-				this.size--;
-			}else {
-				ant=aux; 
-				aux=aux.obtenerSiguiente();
-			}
 		}
-		}		
+		}
+		
+//		while(aux.obtenerValor().equals(valor)&& aux!=null) {//recorro la lista 
+//			this.cabeza=cabeza.obtenerSiguiente();	
+//			size--;
+//			aux=aux.obtenerSiguiente();
+//			}
+//		if(aux!=null) { 
+//			ant=aux;	
+//			aux=aux.obtenerSiguiente();
+//		}else {
+//			cabeza=null;
+//		 
+//		}
+//		while(aux!=null) {
+//			if(aux.obtenerValor().equals(valor)) {
+//				ant.enlazarSiguiente(aux.obtenerSiguiente()); //apunto al nodo siguiente al siguiente(elimino)
+//				aux=aux.obtenerSiguiente(); //avanzo
+//				this.size--;
+//			}else {
+//				ant=aux; 
+//				aux=aux.obtenerSiguiente();
+//			}
+//		}
+//		}		
 }
 	
 	public boolean estaVacia() {
