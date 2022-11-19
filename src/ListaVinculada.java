@@ -129,10 +129,11 @@ public class ListaVinculada<T> implements Iterable<T>{
 		}
 	}
 	
-	public void eliminarOcurrencias(T valor) {
+	public void eliminarOcurrencias(T valor) { 
 		if(!estaVacia() && cabeza.obtenerValor().equals(valor)) {
-			cabeza=cabeza.obtenerSiguiente();
-			size--;
+			  while((cabeza != null) && (cabeza.obtenerValor().equals(valor))) {
+			         cabeza = cabeza.obtenerSiguiente();
+			         size--;}
 		}else {
 		Nodo<T> temp=this.cabeza;
 		while(temp.obtenerSiguiente()!=null) {

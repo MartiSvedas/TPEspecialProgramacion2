@@ -22,6 +22,9 @@ public class Main {
 		
 		listaInteger.insertarOrdenado(elemento1);
 		listaInteger.insertarOrdenado(elemento1);
+		listaInteger.insertarOrdenado(elemento1);
+		listaInteger.insertarOrdenado(elemento1);
+		listaInteger.insertarOrdenado(elemento1);
 		listaInteger.insertarOrdenado(elemento5);
 		listaInteger.insertarOrdenado(elemento100);
 		listaInteger.insertarOrdenado(elemento100);
